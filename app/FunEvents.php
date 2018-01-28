@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 
 class FunEvents extends Model
 {
+    protected $table = 'fun_events';
     protected $fillable = ['title', 'body', 'date', 'venue', 'price'];
     public static function boot() {
 

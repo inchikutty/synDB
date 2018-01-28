@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use App\FunEvents;
 use App\FunEventsController;
+use App\ExtApp;
+use App\ExtAppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,8 @@ Route::get('events/{id}', 'FunEventsController@show');
 Route::post('events', 'FunEventsController@store');
 Route::put('events/{id}', 'FunEventsController@update');
 Route::delete('events/{id}', 'FunEventsController@delete');
+Route::get('extevents', 'ExtAppController@index');
+Route::get('extevents/{id}', 'ExtAppController@show');
+Route::post('extevents', 'ExtAppController@store');
+Route::put('extevents/{id}', 'ExtAppController@update');
+Route::delete('extevents/{id}', 'ExtAppController@delete');
