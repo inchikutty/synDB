@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\FunEvents;
+use App\FunEventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
+Route::get('events', 'FunEventsController@index');
+Route::get('events/{id}', 'FunEventsController@show');
+Route::post('events', 'FunEventsController@store');
+Route::put('events/{id}', 'FunEventsController@update');
+Route::delete('events/{id}', 'FunEventsController@delete');
