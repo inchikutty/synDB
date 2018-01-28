@@ -9,6 +9,8 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use App\FunEvents;
+use Log;
 
 class Event
 {
@@ -29,8 +31,51 @@ class Event
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-    public function broadcastOn()
+     public function funEventCreated(FunEvents $funevent)
+
     {
-        return new PrivateChannel('channel-name');
+
+        Log::info("Fun Event Created Event Fire: ".$funevent);
+
+    }
+
+
+
+    /**
+
+     * Get the channels the event should broadcast on.
+
+     *
+
+     * @return \Illuminate\Broadcasting\Channel|array
+
+     */
+
+    public function funEventUpdated(FunEvents $funevent)
+
+    {
+
+        Log::info("Fun event Updated Event Fire: ".$funevent);
+
+    }
+
+
+
+    /**
+
+     * Get the channels the event should broadcast on.
+
+     *
+
+     * @return \Illuminate\Broadcasting\Channel|array
+
+     */
+
+    public function funEventDeleted(FunEvents $funevent)
+
+    {
+
+        Log::info("Fun event Deleted Event Fire: ".$funevent);
+
     }
 }

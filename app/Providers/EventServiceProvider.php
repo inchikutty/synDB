@@ -16,6 +16,23 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+        'funevent.created' => [
+
+            'App\Events\Event@funEventCreated',
+
+        ],
+
+        'funevent.updated' => [
+
+            'App\Events\Event@funEventUpdated',
+
+        ],
+
+        'funevent.deleted' => [
+
+            'App\Events\Event@funEventDeleted',
+
+        ]
     ];
 
     /**
