@@ -28,7 +28,7 @@ class FunEventsController extends Controller
     public function update(Request $request, $id)
     {
         $event = FunEvents::findOrFail($id);
-        $event->update($request->all());
+        $event->update(array_filter($request->all()));
 
         return $event;
     }
