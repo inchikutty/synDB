@@ -4,7 +4,8 @@
 * FunEvents & FunEventsController handles home event listings
 * ExtApp & ExtAppController handles Pseudo Ext App Event listings
 * API endpoints are defined in api.php
-* Hourly Task Scheduler to repost to external app database
+
+## Hourly Task Scheduler in console/Kernel.php to repost to external app database
 
 ## Install
 
