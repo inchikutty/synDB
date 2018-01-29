@@ -4,6 +4,10 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Http\Request;
+use App\FunEvents;
+use App\ExtAppController;
+use Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +28,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+      $schedule->call(function () {
+        Log::info("cron called");
+        $funevents = FunEvents::all();
+        $request = new Request();
+        foreach ($funevents as $funevent ) {
+          if($funevent->exteventapp == -1){
+            $request->replace($funevent->toArray());
+            $res = app('App\Http\Controllers\ExtAppController')->store($request);
+          }
+        }
+      })->hourly();
     }
 
     /**
