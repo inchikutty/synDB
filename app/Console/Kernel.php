@@ -36,6 +36,12 @@ class Kernel extends ConsoleKernel
           if($funevent->exteventapp == -1){
             $request->replace($funevent->toArray());
             $res = app('App\Http\Controllers\ExtAppController')->store($request);
+            $res = json_decode($res->content());
+            Log::info("External Event Created Event Fire: ".$res->id);
+            $request->merge(['exteventapp' => $res->id]);
+            Log::info($request);
+            $response = app('App\Http\Controllers\FunEventsController')->update($request, $request->id);
+            Log::info($response);
           }
         }
       })->hourly();
