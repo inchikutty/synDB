@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Event;
 class FunEvents extends Model
 {
     protected $table = 'fun_events';
-    protected $fillable = ['title', 'body', 'date', 'venue', 'price'];
+    protected $fillable = ['title', 'body', 'date', 'venue', 'price', 'exteventapp'];
+    protected $attributes = [ 'exteventapp' => '-1'];
     public static function boot() {
 
 

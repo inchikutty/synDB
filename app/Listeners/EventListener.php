@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\Event;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Log;
 
 class EventListener
 {
@@ -26,6 +27,6 @@ class EventListener
      */
      public function handle(Event $event)
      {
-        //
+        Log::info("Event listened: ".$event);
       }
 }
