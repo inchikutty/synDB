@@ -12,12 +12,12 @@ Follow Laravel project installation Instructions.
 
 ## Deployment
 
-AWS ec2 instance:
+AWS ec2 instance: 54.200.147.89
 
 ## Built With
 
 * Laravel
 
 
-##Database
+## Database
 AWS RDS MySql instance
